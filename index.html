@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login & Registration Form</title> 
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <!-- First, we have to create the Registration form -->
+    <div class="container">
+        <div class="form-box">
+            <form action="" name="Formfill" onsubmit="return validation()">
+                <h2>Register</h2>
+                <p id="result"></p>
+                <div class="input-box">
+                    <i class="bx bxs-user"></i>
+                    <input type="text" name="Username" placeholder="Username">
+                </div>
+                <div class="input-box">
+                    <i class="bx bxs-envelope"></i>
+                    <input type="email" name="Email" placeholder="Email">
+                </div>
+
+                <div class="input-box">
+                    <input type="password" name="Password" placeholder="Password" id="password1">
+                    <i class="bi bi-eye-slash" id="togglePassword1" onclick="togglePasswordVisibility('password1', 'togglePassword1')"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="ConfirmPassword" placeholder="Confirm Password" id="password2">
+                    <i class="bi bi-eye-slash" id="togglePassword2" onclick="togglePasswordVisibility('password2', 'togglePassword2')"></i>
+                </div>
+                <div class="button">
+                    <input type="submit" class="btn" onclick="validation()" value="Register">
+                </div>
+                <div class="group">
+                    <span><a href="login.html"> Already have an Account👉 Login</a></span>
+                </div>
+            </form>
+            <script>
+                function togglePasswordVisibility(passwordId, toggleId) {
+                    const togglePassword = document.querySelector(`#${toggleId}`);
+                    const password = document.querySelector(`#${passwordId}`);
+                    // toggle the type attribute
+                    const type = password.getAttribute("type") === "password" ? "text" : "password";
+                    password.setAttribute("type", type);
+                    // toggle the icon
+                    togglePassword.classList.toggle("bi-eye-slash");
+                    togglePassword.classList.toggle("bi-eye");
+                }                
+            </script>
+        </div>
+        <!-- Second, we have to create a pop-up section -->
+        <div class="popup" id="popup">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+            <h2>Thank you!</h2>
+            <p>You were Registration Successfully. Thanks!</p>
+            <a href="login.html"><button onclick="CloseSlide()">OK</button></a>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

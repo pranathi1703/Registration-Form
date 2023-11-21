@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <form action="" name="Formfill" onsubmit="return validation()">
+                <h2>Login</h2>
+                <p id="result"></p>
+                <div class="input-box">
+                    <i class="bx bxs-envelope"></i>
+                    <input type="email" name="Email" placeholder="Email">
+                </div>
+                <div class="input-box">
+                    <input type="password" name="Password" placeholder="Password" id="password">
+                    <i class="bi bi-eye-slash" id="togglePassword" onclick="togglePasswordVisibility()"></i>
+                </div>
+                <div class="button">
+                    <input type="submit" class="btn" onclick="return validation()" value="Login">
+                </div>
+                <div class="group">
+                    <span><a href="#">Forget-Password</a></span>
+                     <span><a href="index.html">Register Now</a></span>
+                </div>
+            </form>
+            <script>
+                function togglePasswordVisibility() {
+                    const togglePassword = document.querySelector("#togglePassword");
+                    const password = document.querySelector("#password");
+
+                    // toggle the type attribute
+                    const type = password.getAttribute("type") === "password" ? "text" : "password";
+                    password.setAttribute("type", type);
+
+                    // toggle the icon
+                    togglePassword.classList.toggle("bi-eye-slash");
+                    togglePassword.classList.toggle("bi-eye");
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
